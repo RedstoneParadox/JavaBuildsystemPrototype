@@ -3,7 +3,6 @@ package io.github.redstoneparadox.buildsystem.api.buildscript;
 import io.github.redstoneparadox.buildsystem.sources.SourceSet;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.util.Collection;
 
 public interface BuildscriptProvider {
