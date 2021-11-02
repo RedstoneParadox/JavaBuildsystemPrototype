@@ -7,11 +7,19 @@ import java.util.Collection;
 
 public interface BuildscriptProvider {
 	/**
+	 * Gets the file extension supported by
+	 * this buildscript provider.
+	 *
+	 * @return The file extension.
+	 */
+	String getExtension();
+
+	/**
 	 * Runs the buildscript for the project.
 	 *
-	 * @param projectDirectory project directory
+	 * @param buildscript The buildscript file.
 	 */
-	void run(File projectDirectory);
+	void run(File buildscript);
 
 	/**
 	 * Gets all the source sets
