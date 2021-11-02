@@ -2,6 +2,7 @@ package io.github.redstoneparadox.buildsystem.api.buildscript;
 
 import io.github.redstoneparadox.buildsystem.sources.SourceSet;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.Collection;
 
@@ -9,9 +10,9 @@ public interface BuildscriptProvider {
 	/**
 	 * Runs the buildscript for the project.
 	 *
-	 * @param path Path to the project directory
+	 * @param projectDirectory project directory
 	 */
-	void run(Path path);
+	void run(File projectDirectory);
 
 	/**
 	 * Gets all the source sets
