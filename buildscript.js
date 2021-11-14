@@ -1,3 +1,5 @@
-sources.test = (ops) => {
-    ops.version = 16
+java.version = 16
+
+sources["test"] = (ops) => {
+
 }
