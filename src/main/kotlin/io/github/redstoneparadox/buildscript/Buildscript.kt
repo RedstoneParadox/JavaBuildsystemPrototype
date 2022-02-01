@@ -1,14 +1,12 @@
 package io.github.redstoneparadox.buildscript
 
 import io.github.redstoneparadox.buildsystem.sources.SourceSet
-import kotlinx.coroutines.runBlocking
 import java.io.File
-import kotlin.script.experimental.api.*
-import kotlin.script.experimental.host.BasicScriptingHost
+import kotlin.script.experimental.api.ScriptCompilationConfiguration
+import kotlin.script.experimental.api.ScriptDiagnostic
+import kotlin.script.experimental.api.valueOrThrow
 import kotlin.script.experimental.host.toScriptSource
-import kotlin.script.experimental.jvm.BasicJvmScriptEvaluator
 import kotlin.script.experimental.jvmhost.BasicJvmScriptingHost
-import kotlin.script.experimental.jvmhost.JvmScriptCompiler
 import kotlin.script.experimental.jvmhost.createJvmCompilationConfigurationFromTemplate
 
 class Buildscript {

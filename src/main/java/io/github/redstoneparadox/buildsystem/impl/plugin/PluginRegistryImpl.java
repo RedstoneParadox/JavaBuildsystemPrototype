@@ -5,7 +5,6 @@ import io.github.redstoneparadox.buildsystem.api.plugin.PluginRegistry;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
 
 public class PluginRegistryImpl implements PluginRegistry {
 	private final Collection<Plugin> plugins = new ArrayList<>();
