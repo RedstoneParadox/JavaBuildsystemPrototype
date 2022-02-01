@@ -1,6 +1,9 @@
 plugins {
     id 'java'
+    id "org.jetbrains.kotlin.jvm" version "1.6.10"
 }
+
+apply plugin: 'kotlin'
 
 group 'io.github.redstoneparadox'
 version '1.0-SNAPSHOT'
@@ -20,6 +23,13 @@ dependencies {
     implementation 'org.tinylog:tinylog-impl:2.3.2'
 
     implementation 'org.mozilla:rhino:1.7.13'
+
+    implementation 'org.jetbrains.kotlin:kotlin-scripting-common'
+    implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
+    implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies'
+    implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies-maven'
+    // coroutines dependency is required for this particular definition
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0'
 }
 
 test {
