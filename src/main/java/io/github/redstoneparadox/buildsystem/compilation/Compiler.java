@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Compiler {
-	public void compile(List<File> sources) {
+	public void compile(int javaVersion, List<File> sources) {
 		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 		StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, StandardCharsets.UTF_8);
 
@@ -19,7 +19,7 @@ public class Compiler {
 				null,
 				fileManager,
 				null,
-				Arrays.asList(JvmUtil.compileArgs(16, 16)),
+				Arrays.asList(JvmUtil.compileArgs(javaVersion, javaVersion)),
 				null,
 				fileManager.getJavaFileObjects(sources.toArray(new File[]{}))
 		);

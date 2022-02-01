@@ -1,5 +1,6 @@
-package io.github.redstoneparadox.buildscript.kotlin
+package io.github.redstoneparadox.buildscript
 
+import io.github.redstoneparadox.buildsystem.sources.SourceSet
 import kotlinx.coroutines.runBlocking
 import kotlin.script.experimental.annotations.KotlinScript
 import kotlin.script.experimental.api.*
@@ -13,7 +14,17 @@ import kotlin.script.experimental.jvm.jvm
     fileExtension = "creamer.kts",
     compilationConfiguration = BuildscriptDefConfiguration::class
 )
-abstract class BuildscriptDef
+abstract class BuildscriptDef {
+    val java = JavaConfiguration()
+    val sourceSets: MutableList<SourceSet> = mutableListOf()
+
+    @Suppress("unused")
+    fun sourceSet(consumer: (SourceSet) -> Unit) {
+        val sourceSet = SourceSet()
+        consumer.invoke(sourceSet)
+        sourceSets.add(sourceSet)
+    }
+}
 
 object BuildscriptDefConfiguration: ScriptCompilationConfiguration({
     defaultImports(DependsOn::class, Repository::class)
@@ -23,6 +34,7 @@ object BuildscriptDefConfiguration: ScriptCompilationConfiguration({
     refineConfiguration {
         onAnnotations(DependsOn::class, Repository::class, handler = ::handleBuildscript)
     }
+
 })
 
 private val resolver = CompoundDependenciesResolver(FileSystemDependenciesResolver(), MavenDependenciesResolver())
