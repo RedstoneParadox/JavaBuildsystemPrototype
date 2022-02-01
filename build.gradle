@@ -35,6 +35,7 @@ dependencies {
 
     implementation 'org.jetbrains.kotlin:kotlin-scripting-common'
     implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
+    implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm-host'
     implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies'
     implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies-maven'
     // coroutines dependency is required for this particular definition

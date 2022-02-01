@@ -10,7 +10,7 @@ import kotlin.script.experimental.jvm.dependenciesFromCurrentContext
 import kotlin.script.experimental.jvm.jvm
 
 @KotlinScript(
-    fileExtension = "buildscript.kts",
+    fileExtension = "creamer.kts",
     compilationConfiguration = BuildscriptDefConfiguration::class
 )
 abstract class BuildscriptDef
