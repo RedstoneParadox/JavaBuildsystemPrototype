@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public record SourceSet(String name) {
-
 	public List<File> getSources() {
 		String userDir = System.getProperty("user.dir");
 		Path root = Path.of(userDir + "/src/" + name);
