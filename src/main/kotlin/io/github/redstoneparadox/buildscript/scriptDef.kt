@@ -39,12 +39,12 @@ abstract class BuildscriptDef {
 }
 
 object BuildscriptDefConfiguration: ScriptCompilationConfiguration({
-    defaultImports(DependsOn::class, Repository::class)
+    defaultImports(DependsOn::class, kotlin.script.experimental.dependencies.Repository::class)
     jvm {
         dependenciesFromCurrentContext(wholeClasspath = true)
     }
     refineConfiguration {
-        onAnnotations(DependsOn::class, Repository::class, handler = ::handleBuildscript)
+        onAnnotations(DependsOn::class, kotlin.script.experimental.dependencies.Repository::class, handler = ::handleBuildscript)
     }
 
 })
