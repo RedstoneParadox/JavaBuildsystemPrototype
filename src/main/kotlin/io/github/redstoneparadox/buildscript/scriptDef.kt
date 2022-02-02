@@ -20,10 +20,12 @@ abstract class BuildscriptDef {
     val dependenciesContext: DependenciesContext = DependenciesContext()
     val repositoriesContext: RepositoriesContext = RepositoriesContext()
 
+    @Suppress("unused")
     fun repositories(consumer: RepositoriesContext.() -> Unit) {
         consumer.invoke(repositoriesContext)
     }
 
+    @Suppress("unused")
     fun dependencies(consumer: DependenciesContext.() -> Unit) {
         consumer.invoke(dependenciesContext)
     }
