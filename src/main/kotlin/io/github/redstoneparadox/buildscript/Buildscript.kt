@@ -21,6 +21,14 @@ class Buildscript {
         return def?.java?.version ?: 11
     }
 
+    fun getRepositories(): Collection<Repository> {
+        return def?.repositoriesContext?.repositories ?: emptyList()
+    }
+
+    fun getDependencies(): Collection<String> {
+        return def?.dependenciesContext?.dependencies ?: emptyList()
+    }
+
     fun getSourceSets(): Collection<SourceSet> {
         return def?.sourceSets ?: emptyList();
     }

@@ -1,6 +1,7 @@
 package io.github.redstoneparadox.buildsystem;
 
 import io.github.redstoneparadox.buildscript.Buildscript;
+import io.github.redstoneparadox.buildscript.Repository;
 import io.github.redstoneparadox.buildsystem.compilation.Compiler;
 import io.github.redstoneparadox.buildsystem.compilation.JarBuilder;
 import io.github.redstoneparadox.buildsystem.sources.SourceSet;
@@ -13,6 +14,10 @@ public class Main {
 
 		var repositories = buildscript.getRepositories();
 		var dependencies = buildscript.getDependencies();
+
+		for (Repository repo: repositories) {
+			var url = repo.getUrl();
+		}
 
 		var javaVersion = buildscript.getJavaVersion();
 		var sourceSets = buildscript.getSourceSets();
