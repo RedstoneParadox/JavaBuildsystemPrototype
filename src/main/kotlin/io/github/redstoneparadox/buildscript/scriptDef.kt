@@ -19,7 +19,7 @@ abstract class BuildscriptDef {
     val sourceSets: MutableList<SourceSet> = mutableListOf()
 
     @Suppress("unused")
-    fun sourceSet(consumer: (SourceSet) -> Unit) {
+    fun sourceSet(consumer: SourceSet.() -> Unit) {
         val sourceSet = SourceSet()
         consumer.invoke(sourceSet)
         sourceSets.add(sourceSet)
