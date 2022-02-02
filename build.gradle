@@ -15,7 +15,7 @@ plugins {
 apply plugin: 'kotlin'
 
 group 'io.github.redstoneparadox'
-version '1.0-SNAPSHOT'
+version '0.1.0'
 
 repositories {
     mavenCentral()
@@ -25,13 +25,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
-    compileOnly'org.tinylog:tinylog-api:2.3.2'
-    implementation 'org.tinylog:tinylog-impl:2.3.2'
-
-    implementation 'org.mozilla:rhino:1.7.13'
+    compileOnly 'org.tinylog:tinylog-api:2.4.1'
+    implementation 'org.tinylog:tinylog-impl:2.4.1'
 
     implementation 'org.jetbrains.kotlin:kotlin-scripting-common'
     implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
