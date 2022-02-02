@@ -11,6 +11,9 @@ public class Main {
 
 		buildscript.run();
 
+		var repositories = buildscript.getRepositories();
+		var dependencies = buildscript.getDependencies();
+
 		var javaVersion = buildscript.getJavaVersion();
 		var sourceSets = buildscript.getSourceSets();
 		var compiler = new Compiler();

@@ -1,10 +1,12 @@
 package io.github.redstoneparadox.buildscript
 
 class RepositoriesContext {
-    val repositories: MutableList<String> = mutableListOf();
+    val repositories: MutableList<Repository> = mutableListOf();
 
     @Suppress("unused")
-    fun repository(repository: String) {
-        repositories.add(repository)
+    fun repository(repositorySetup: Repository.() -> Unit) {
+        val repo = Repository()
+        repo.repositorySetup()
+        repositories.add(repo)
     }
 }
