@@ -17,6 +17,16 @@ import kotlin.script.experimental.jvm.jvm
 abstract class BuildscriptDef {
     val java = JavaConfiguration()
     val sourceSets: MutableList<SourceSet> = mutableListOf()
+    val dependenciesContext: DependenciesContext = DependenciesContext()
+    val repositoriesContext: RepositoriesContext = RepositoriesContext()
+
+    fun repositories(consumer: RepositoriesContext.() -> Unit) {
+        consumer.invoke(repositoriesContext)
+    }
+
+    fun dependencies(consumer: DependenciesContext.() -> Unit) {
+        consumer.invoke(dependenciesContext)
+    }
 
     @Suppress("unused")
     fun sourceSet(consumer: SourceSet.() -> Unit) {
