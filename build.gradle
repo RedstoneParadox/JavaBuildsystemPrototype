@@ -39,6 +39,8 @@ dependencies {
     // coroutines dependency is required for this particular definition
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    implementation 'org.apache.maven.resolver:maven-resolver:1.7.3'
 }
 
 test {
