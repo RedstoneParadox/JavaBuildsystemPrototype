@@ -1,6 +1,6 @@
 package io.github.redstoneparadox.buildscript
 
 class Repository {
-    val name: String = ""
-    val url: String = ""
+    var name: String = ""
+    var url: String = ""
 }
