@@ -1,5 +1,7 @@
 package io.github.redstoneparadox.buildsystem.compilation;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,17 +27,25 @@ public class JarBuilder {
 		manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
 
 		try {
-			JarOutputStream target = new JarOutputStream(new FileOutputStream("output.jar"), manifest);
+			clean();
+
+			JarOutputStream target = new JarOutputStream(new FileOutputStream("run/output.jar"), manifest);
 			for (String s : classes) {
-				add(new File(s), target);
+				addToJar(new File(s), target);
+				move(s);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void add(File source, JarOutputStream target) throws IOException
-	{
+	private void clean() throws IOException {
+		File runDir = new File("run");
+		FileUtils.deleteDirectory(runDir);
+		runDir.mkdir();
+	}
+
+	private void addToJar(File source, JarOutputStream target) throws IOException {
 		BufferedInputStream in = null;
 		var userDir = System.getProperty("user.dir");
 		var root = userDir + "/src/" + sourceSet + "/java/";
@@ -68,5 +78,15 @@ public class JarBuilder {
 			if (in != null)
 				in.close();
 		}
+	}
+
+	private void move(String sourcePath) throws IOException {
+		String destinationPath = sourcePath.replace("\\src\\","\\run\\classes\\");
+		File source = new File(sourcePath);
+		File destination = new File(destinationPath);
+
+		// var flag = destination.mkdirs();
+
+		source.renameTo(destination);
 	}
 }
