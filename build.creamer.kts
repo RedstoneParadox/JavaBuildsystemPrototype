@@ -1,5 +1,5 @@
 repositories {
-    repository {
+    maven {
         name = "central"
         url = "http://repo.maven.apache.org/maven2/"
     }

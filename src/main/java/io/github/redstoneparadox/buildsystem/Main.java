@@ -1,7 +1,7 @@
 package io.github.redstoneparadox.buildsystem;
 
 import io.github.redstoneparadox.buildscript.Buildscript;
-import io.github.redstoneparadox.buildscript.Repository;
+import io.github.redstoneparadox.buildsystem.buildscript.Repository;
 import io.github.redstoneparadox.buildsystem.compilation.Compiler;
 import io.github.redstoneparadox.buildsystem.compilation.JarBuilder;
 import io.github.redstoneparadox.buildsystem.sources.SourceSet;

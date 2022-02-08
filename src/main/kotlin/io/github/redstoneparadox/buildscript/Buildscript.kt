@@ -1,5 +1,6 @@
 package io.github.redstoneparadox.buildscript
 
+import io.github.redstoneparadox.buildsystem.buildscript.Repository
 import io.github.redstoneparadox.buildsystem.sources.SourceSet
 import java.io.File
 import kotlin.script.experimental.api.ScriptCompilationConfiguration
