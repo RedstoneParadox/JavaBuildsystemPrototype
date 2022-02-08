@@ -14,25 +14,26 @@ import java.util.jar.JarOutputStream;
 import java.util.jar.Manifest;
 
 public class JarBuilder {
-	private final String sourceSet;
+	public JarBuilder() {
 
-	public JarBuilder(String sourceSet) {
-		this.sourceSet = sourceSet;
 	}
 
-	public void build(List<File> sources) {
-		var classes = sources.stream().map(File::getPath).map(s -> s.substring(0, s.length() - 4) + "class").toList();
+	public void build(List<File> sources, String sourceSetName) {
+		var classes = sources
+				.stream()
+				.map(File::getPath)
+				.map(s -> s.substring(0, s.length() - 4) + "class")
+				.map(s -> s.replace("\\src\\" + sourceSetName + "\\java\\","\\run\\classes\\"))
+				.map(File::new)
+				.toList();
 		var manifest = new Manifest();
 
 		manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
 
 		try {
-			clean();
-
 			JarOutputStream target = new JarOutputStream(new FileOutputStream("run/output.jar"), manifest);
-			for (String s : classes) {
-				addToJar(new File(s), target);
-				move(s);
+			for (File file : classes) {
+				addToJar(file, target);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -48,7 +49,7 @@ public class JarBuilder {
 	private void addToJar(File source, JarOutputStream target) throws IOException {
 		BufferedInputStream in = null;
 		var userDir = System.getProperty("user.dir");
-		var root = userDir + "/src/" + sourceSet + "/java/";
+		var root = userDir + "/run/classes/";
 
 		try
 		{
@@ -78,15 +79,5 @@ public class JarBuilder {
 			if (in != null)
 				in.close();
 		}
-	}
-
-	private void move(String sourcePath) throws IOException {
-		String destinationPath = sourcePath.replace("\\src\\","\\run\\classes\\");
-		File source = new File(sourcePath);
-		File destination = new File(destinationPath);
-
-		// var flag = destination.mkdirs();
-
-		source.renameTo(destination);
 	}
 }

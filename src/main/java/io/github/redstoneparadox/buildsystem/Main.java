@@ -24,11 +24,11 @@ public class Main {
 		var compiler = new Compiler();
 
 		for (SourceSet sourceSet: sourceSets) {
-			var builder = new JarBuilder(sourceSet.name);
+			var builder = new JarBuilder();
 			var sources = sourceSet.getSources();
 
 			compiler.compile(javaVersion, sources);
-			builder.build(sources);
+			builder.build(sources, sourceSet.name);
 		}
 	}
 }
