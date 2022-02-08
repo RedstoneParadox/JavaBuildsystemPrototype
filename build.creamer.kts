@@ -13,5 +13,9 @@ dependencies {
 }
 
 sourceSet {
+    name = "main"
+}
+
+sourceSet {
     name = "test"
 }

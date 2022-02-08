@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Compiler {
-	public void compile(int javaVersion, List<File> sources) {
+	public void prepare() {
 		File runDir = new File("run");
 
 		try {
@@ -22,7 +22,9 @@ public class Compiler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
 
+	public void compile(int javaVersion, List<File> sources) {
 		File classesDir = new File("run/classes/");
 		classesDir.mkdirs();
 
