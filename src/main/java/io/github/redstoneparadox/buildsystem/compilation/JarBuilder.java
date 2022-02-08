@@ -35,6 +35,7 @@ public class JarBuilder {
 			for (File file : classes) {
 				addToJar(file, target);
 			}
+			target.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
