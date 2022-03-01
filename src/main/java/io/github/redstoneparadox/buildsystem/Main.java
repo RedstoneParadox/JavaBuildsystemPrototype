@@ -41,7 +41,7 @@ public class Main {
 		var sourceSets = buildscript.getSourceSets();
 		var compiler = new Compiler();
 
-		compiler.prepare();
+		compiler.prepare(directory);
 
 		for (SourceSet sourceSet: sourceSets) {
 			var builder = new JarBuilder();

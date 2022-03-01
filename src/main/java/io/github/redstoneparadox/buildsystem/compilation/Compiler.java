@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Compiler {
-	public void prepare() {
-		File runDir = new File("run");
+	public void prepare(String projectDirectory) {
+		File runDir = new File(projectDirectory + "run");
 
 		try {
 			FileUtils.deleteDirectory(runDir);
@@ -25,7 +25,7 @@ public class Compiler {
 	}
 
 	public void compile(int javaVersion, List<File> sources, String projectDirectory) {
-		File classesDir = new File(projectDirectory);
+		File classesDir = new File(projectDirectory + "run/classes/");
 		classesDir.mkdirs();
 
 		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
