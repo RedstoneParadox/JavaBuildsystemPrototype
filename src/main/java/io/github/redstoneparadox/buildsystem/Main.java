@@ -20,7 +20,7 @@ public class Main {
 			String command = in.next();
 
 			if (Objects.equals(command, "build")) {
-				build(buildscript);
+				build(buildscript, args[0]);
 			} else if (Objects.equals(command, "stop")) {
 				break;
 			} else {
@@ -29,7 +29,7 @@ public class Main {
 		}
 	}
 
-	private static void build(Buildscript buildscript) {
+	private static void build(Buildscript buildscript, String directory) {
 		var repositories = buildscript.getRepositories();
 		var dependencies = buildscript.getDependencies();
 
@@ -47,7 +47,7 @@ public class Main {
 			var builder = new JarBuilder();
 			var sources = sourceSet.getSources();
 
-			compiler.compile(javaVersion, sources);
+			compiler.compile(javaVersion, sources, directory);
 			builder.build(sources, sourceSet.name);
 		}
 	}

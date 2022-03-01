@@ -24,8 +24,8 @@ public class Compiler {
 		}
 	}
 
-	public void compile(int javaVersion, List<File> sources) {
-		File classesDir = new File("run/classes/");
+	public void compile(int javaVersion, List<File> sources, String projectDirectory) {
+		File classesDir = new File(projectDirectory);
 		classesDir.mkdirs();
 
 		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
