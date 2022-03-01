@@ -5,7 +5,10 @@ import io.github.redstoneparadox.buildsystem.buildscript.Repository;
 import io.github.redstoneparadox.buildsystem.compilation.Compiler;
 import io.github.redstoneparadox.buildsystem.compilation.JarBuilder;
 import io.github.redstoneparadox.buildsystem.sources.SourceSet;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -21,6 +24,14 @@ public class Main {
 
 			if (Objects.equals(command, "build")) {
 				build(buildscript, args[0]);
+			} else if (Objects.equals(command, "clean")) {
+				File runDir = new File(args[0] + "/run");
+
+				try {
+					FileUtils.deleteDirectory(runDir);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			} else if (Objects.equals(command, "stop")) {
 				break;
 			} else {
